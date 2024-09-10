@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>classList Example</title>
+    <style>
+        .highlight {
+            color: red;
+            font-weight: bold;
+        }
+        .italic {
+            font-style: italic;
+        }
+        .underline {
+            text-decoration: underline;
+        }
+        .strike {
+            text-decoration: line-through;
+        }
+    </style>
+       <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+</head>
+<body>
+ 
+    <p id="myParagraph" class="highlight">This is a paragraph.</p>
+    <button onclick="performClassListOperations()">Perform Operations</button>
+ 
+    <script>
+        function performClassListOperations() {
+            const paragraph = document.getElementById('myParagraph');
+ 
+            // Adding a class
+            paragraph.classList.add('italic');
+ 
+            // Removing a class
+            paragraph.classList.remove('highlight');
+ 
+            // Toggling a class
+            paragraph.classList.toggle('underline', true);
+ 
+            // Checking if a class exists
+            const hasItalicClass = paragraph.classList.contains('italic');
+            console.log(`Has italic class: ${hasItalicClass}`);
+ 
+            // Replacing a class after a delay (for demonstration)
+            setTimeout(() => {
+                paragraph.classList.replace('underline', 'strike');
+                
+                // Accessing classes as a string
+                const classString = paragraph.classList.toString();
+                console.log(`Current classes: ${classString}`);
+            }, 2000); // Delay for 2 seconds
+        }
+    </script>
+<div class="mermaid">
+graph LR
+A[Start] --> B[Get element by ID 'myParagraph']
+B --> C[Add class 'italic']
+C --> D[Remove class 'highlight']
+D --> E[Toggle class 'underline' with true]
+E --> F[Check if class 'italic' exists]
+F --> G{Has 'italic' class?}
+G --> H[Log result to console]
+H --> I[Set timeout for 2 seconds]
+I --> J[Replace class 'underline' with 'strike']
+J --> K[Convert classList to string]
+K --> L[Log current classes to console]
+L --> M[End]
+
+
+style A fill:#f9f,stroke:#333,stroke-width:2px;
+style B fill:#bbf,stroke:#333,stroke-width:2px;
+style C fill:#bfb,stroke:#333,stroke-width:2px;
+style D fill:#ffb,stroke:#333,stroke-width:2px;
+style E fill:#fbb,stroke:#333,stroke-width:2px;
+style F fill:#bff,stroke:#333,stroke-width:2px;
+style G fill:#fbf,stroke:#333,stroke-width:2px;
+style H fill:#bfb,stroke:#333,stroke-width:2px;
+style I fill:#ffb,stroke:#333,stroke-width:2px;
+style J fill:#fbb,stroke:#333,stroke-width:2px;
+style K fill:#bff,stroke:#333,stroke-width:2px;
+style L fill:#fbf,stroke:#333,stroke-width:2px;
+style M fill:#bfb,stroke:#333,stroke-width:2px;
+</div>
+</body>
+</html>
